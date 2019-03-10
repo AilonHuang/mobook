@@ -25,12 +25,15 @@
                             {{ session('success') }}
                         </div>
                     @endif
-                    <form class="ui form" action="{{ route('user.update', Auth::user()) }}" method="POST" enctype="multipart/form-data">
+                    <form class="ui form {{$errors->any() ? 'error' : ''}}"
+                          action="{{ route('user.update', Auth::user()) }}" method="POST" enctype="multipart/form-data">
                         {{ method_field('PUT') }}
+                        @include('common.formmessage')
                         @csrf
                         <div class="three fields">
                             <div class="field">
-                                <input type="file" name="avatar" class="dropify" data-default-file="{{ Auth::user()->cover }}"
+                                <input type="file" name="avatar" class="dropify"
+                                       data-default-file="{{ Auth::user()->cover }}"
                                        data-allowed-file-extensions="pdf png psd"/>
                             </div>
                         </div>

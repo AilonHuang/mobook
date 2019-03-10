@@ -26,6 +26,7 @@
             </h2>
             <form class="ui large form {{$errors->any() ? 'error' : ''}}" method="POST" action="{{ route('login') }}">
                 @csrf
+                @include('common.formmessage')
                 <div class="ui stacked segment">
                     <div class="field">
                         <div class="ui left icon input">
@@ -42,15 +43,6 @@
                     <button class="ui fluid large teal submit button">
                         登录
                     </button>
-                </div>
-                <div class="ui error message">
-                    @if($errors->any())
-                        <ul class="list">
-                            @foreach($errors->all() as $error)
-                                <li>{{$error}}</li>
-                            @endforeach
-                        </ul>
-                    @endif
                 </div>
             </form>
             <div class="ui message">
