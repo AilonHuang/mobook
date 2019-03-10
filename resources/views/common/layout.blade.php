@@ -8,5 +8,6 @@
 @yield('content')
 @include('common.footer')
 @include('common.script')
+@yield('script')
 </body>
 </html>
